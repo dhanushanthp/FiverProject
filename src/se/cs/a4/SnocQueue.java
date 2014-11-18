@@ -1,29 +1,43 @@
 package se.cs.a4;
 
 public class SnocQueue implements MyQueue {
+	private SnocList queue;
 
 	@Override
 	public char peek() throws EmptyContainerException {
-		// TODO Auto-generated method stub
-		return 0;
+		return queue.recursiveReverse(queue).c;
 	}
 
 	@Override
 	public void dequeue() {
-		// TODO Auto-generated method stub
-		
+		queue = queue.l;
 	}
 
 	@Override
 	public void enqueue(char c) {
-		// TODO Auto-generated method stub
-		
+		queue = new SnocList(c, queue);
+		queue = queue.recursiveReverse(queue);
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return queue == null;
+	}
+
+	public static void main(String[] args) throws EmptyContainerException {
+		SnocQueue s = new SnocQueue();
+		s.enqueue('a');
+		s.enqueue('b');
+		s.enqueue('c');
+		s.enqueue('d');
+		System.out.println(s.isEmpty());
+		s.dequeue();
+		s.dequeue();
+		s.dequeue();
+		s.dequeue();
+		s.enqueue('s');
+		s.enqueue('w');
+		System.out.println(s.peek());
 	}
 
 }

@@ -1,21 +1,12 @@
 package se.cs.a4;
 
 public class SnocList {
-	private char c;
-	private SnocList l;
+	 char c;
+	 SnocList l;
 	
 	public SnocList(char c, SnocList l) {
 		this.c = c;
 		this.l = l;
-	}
-
-	SnocList(Character node) {
-		this(node, null);
-	}
-
-	SnocList(Character node, SnocList nextNode) {
-		this.c = node;
-		this.l = nextNode;
 	}
 
 	@Override
@@ -30,7 +21,7 @@ public class SnocList {
 		return data;
 	}
 
-	public static SnocList recursiveReverse(SnocList list) {
+	public SnocList recursiveReverse(SnocList list) {
 		if (list == null || list.l == null) {
 			return list;
 		}
@@ -53,7 +44,7 @@ public class SnocList {
 		for (int i = 0; i < 10; i++) {
 			list = new SnocList('a', new SnocList('p', new SnocList('p', null)));
 		}
-		SnocList reverse = recursiveReverse(list);
+		SnocList reverse = list.recursiveReverse(list);
 
 		System.out.println(reverse);
 	}
