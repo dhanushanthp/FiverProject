@@ -1,15 +1,9 @@
 package se.cs.a4;
 
-public class SnocList implements MyStack {
+public class SnocList {
 	private char c;
 	private SnocList l;
-
-	private SnocList topOfStack;
-
-	public SnocList() {
-		topOfStack = null;
-	}
-
+	
 	public SnocList(char c, SnocList l) {
 		this.c = c;
 		this.l = l;
@@ -22,30 +16,6 @@ public class SnocList implements MyStack {
 	SnocList(Character node, SnocList nextNode) {
 		this.c = node;
 		this.l = nextNode;
-	}
-
-	@Override
-	public char top() throws EmptyContainerException {
-		if (isEmpty()) {
-			throw new EmptyContainerException("No nodes found");
-		} else {
-			return topOfStack.c;
-		}
-	}
-
-	@Override
-	public void pop() {
-		topOfStack = topOfStack.l;
-	}
-
-	@Override
-	public void push(char c) {
-		topOfStack = new SnocList(c, topOfStack);
-	}
-
-	@Override
-	public boolean isEmpty() {
-		return topOfStack == null;
 	}
 
 	@Override
@@ -81,7 +51,7 @@ public class SnocList implements MyStack {
 	public static void main(String[] args) {
 		SnocList list = null;
 		for (int i = 0; i < 10; i++) {
-			list = new SnocList('a', new SnocList('b', new SnocList('c', null)));
+			list = new SnocList('a', new SnocList('p', new SnocList('p', null)));
 		}
 		SnocList reverse = recursiveReverse(list);
 
