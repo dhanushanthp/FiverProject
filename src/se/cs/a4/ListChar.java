@@ -42,6 +42,18 @@ public class ListChar implements MyStack {
 	public boolean isEmpty() {
 		return topOfStack == null;
 	}
+	
+	@Override
+	public String toString() {
+		String data = "";
+		ListChar current = this;
+		do {
+			data += current.currentNode + ",";
+			current = current.nextNode;
+		} while (current != null);
+
+		return data;
+	}
 
 	public static void main(String[] args) throws EmptyContainerException {
 		ListChar charList = new ListChar();
@@ -52,7 +64,6 @@ public class ListChar implements MyStack {
 
 		while (!charList.isEmpty())
 			charList.pop();
-
 	}
 
 }
