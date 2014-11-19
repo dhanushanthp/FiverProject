@@ -15,8 +15,20 @@ public class SnocListTest {
 	}
 
 	@Test
+	public void testSnocList(){
+		SnocList tmp = new SnocList('a', null);
+		assertEquals('a', tmp.getC());
+		assertEquals(null, tmp.getL());
+	}
+	
+	@Test
 	public void testCurrentNode(){
 		assertEquals('a',charList.getC());
+	}
+	
+	@Test
+	public void testNextNode(){
+		assertEquals('b',charList.getL().getC());
 	}
 	
 	@Test
@@ -32,11 +44,6 @@ public class SnocListTest {
 	@Test
 	public void testNextNodeReverse(){
 		assertEquals('b',(charList.recursiveReverse(charList)).getL().getC());
-	}
-	
-	@Test
-	public void testNextNode(){
-		assertEquals('b',charList.getL().getC());
 	}
 	
 	@Test

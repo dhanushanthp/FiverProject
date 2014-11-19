@@ -1,4 +1,5 @@
 package se.cs.a4;
+
 import java.util.ArrayList;
 
 public class StackChar implements MyStack {
@@ -28,17 +29,8 @@ public class StackChar implements MyStack {
 		a.add(c);
 	}
 
-	public static void main(String[] args) {
-		StackChar sc = new StackChar();
-
-		for (int i = 0; i < 10; i++) {
-			sc.push('1');
-		}
-
-		for (int i = 0; i < 5; i++) {
-			sc.pop();
-		}
-
-		System.out.println(sc.a.size());
-	}
+	@Override
+	public String toString() {
+		return a.toString();
+	};
 }
