@@ -2,18 +2,16 @@ package se.cs.a4;
 
 public class AList {
 	private char hd;
-
+	private int priority;
+	private AList tl;
+	
 	public char getHd() {
 		return hd;
 	}
 
-	private int priority;
-
 	public int getPriority() {
 		return priority;
 	}
-
-	private AList tl;
 
 	public AList getTl() {
 		return tl;
@@ -39,11 +37,5 @@ public class AList {
 		} while (current != null);
 
 		return data;
-	}
-
-	public static void main(String[] args) {
-		AList list = new AList('1', 2, new AList('2', 3,
-				new AList('3', 4, null)));
-		System.out.println(list);
 	}
 }

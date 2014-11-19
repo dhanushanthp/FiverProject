@@ -1,14 +1,13 @@
 package se.cs.a4;
 
 public class SnocList {
-	 private char c;
+	private char c;
+	private SnocList l;
 
-	 public char getC() {
+	public char getC() {
 		return c;
 	}
 
-	private SnocList l;
-	
 	public SnocList getL() {
 		return l;
 	}

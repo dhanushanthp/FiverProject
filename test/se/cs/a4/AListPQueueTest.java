@@ -53,7 +53,7 @@ public class AListPQueueTest {
 
 	@Test
 	public void testToString() {
-		assertEquals("(b/4), (c/3), (d/3), (a/1), ", pq.head.toString());
+		assertEquals("(b/4), (c/3), (d/3), (a/1), ", pq.getHead().toString());
 	}
 
 }

@@ -2,7 +2,11 @@ package se.cs.a4;
 
 public class AListPQueue implements MyPriorityQueue {
 
-	AList head;
+	private AList head;
+
+	public AList getHead() {
+		return head;
+	}
 
 	@Override
 	public boolean isEmpty() {

@@ -1,12 +1,12 @@
 package se.cs.a4;
 public class ListChar implements MyStack {
-	Character currentNode;
-	ListChar nextNode;
+	private Character currentNode;
+	private ListChar nextNode;
 
-	private ListChar topOfStack;
+	private ListChar head;
 
 	public ListChar() {
-		topOfStack = null;
+		head = null;
 	}
 
 	ListChar(Character node) {
@@ -23,24 +23,24 @@ public class ListChar implements MyStack {
 		if (isEmpty()) {
 			throw new EmptyContainerException("No nodes found");
 		} else {
-			return topOfStack.currentNode;
+			return head.currentNode;
 		}
 	}
 
 	@Override
 	public void pop() {
-		topOfStack = topOfStack.nextNode;
+		head = head.nextNode;
 	}
 
 	@Override
 	public void push(char c) {
-		topOfStack = new ListChar(c, topOfStack);
+		head = new ListChar(c, head);
 
 	}
 
 	@Override
 	public boolean isEmpty() {
-		return topOfStack == null;
+		return head == null;
 	}
 	
 	@Override
