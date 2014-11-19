@@ -2,28 +2,70 @@ package se.cs.a4;
 
 import static org.junit.Assert.*;
 
+import javax.print.attribute.standard.Chromaticity;
+
+import org.junit.Before;
 import org.junit.Test;
 
 public class ListCharTest {
-
+	ListChar charList;
+	
+	@Before
+	public void setUp(){
+		charList = new ListChar();
+		charList.push('a');
+		charList.push('b');
+		charList.push('c');
+		charList.push('d');
+		charList.push('e');
+	}
+	
 	@Test
-	public void testTop() {
-		fail("Not yet implemented");
+	public void testTop() throws EmptyContainerException {
+		assertEquals('e',charList.top());
+	}
+	
+	@Test(expected=EmptyContainerException.class)
+	public void testTopEmpty() throws EmptyContainerException {
+		ListChar tmp = new ListChar();
+		assertEquals('e', tmp.top());
 	}
 
 	@Test
-	public void testPop() {
-		fail("Not yet implemented");
+	public void testPop() throws EmptyContainerException {
+		charList.pop();
+		assertEquals( 'd',charList.top());
+	}
+	
+	@Test(expected=NullPointerException.class)
+	public void testPopEmpty() {
+		ListChar tmp = new ListChar();
+		tmp.pop();
 	}
 
 	@Test
-	public void testPush() {
-		fail("Not yet implemented");
+	public void testPush() throws EmptyContainerException {
+		charList.push('f');
+		assertEquals( 'f',charList.top());
 	}
 
 	@Test
-	public void testIsEmpty() {
-		fail("Not yet implemented");
+	public void testIsEmptyFalse() {
+		assertFalse(charList.isEmpty());
+	}
+	
+	@Test
+	public void testIsEmptyTrue() {
+		ListChar tmp = new ListChar();
+		assertTrue(tmp.isEmpty());
+	}
+	
+	@Test
+	public void testPushPop(){
+		ListChar l = new ListChar();
+		l.push('a');
+		l.pop();
+		assertTrue(l.isEmpty());
 	}
 
 }

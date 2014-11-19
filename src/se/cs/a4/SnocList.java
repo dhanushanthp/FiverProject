@@ -1,9 +1,18 @@
 package se.cs.a4;
 
 public class SnocList {
-	 char c;
-	 SnocList l;
+	 private char c;
+
+	 public char getC() {
+		return c;
+	}
+
+	private SnocList l;
 	
+	public SnocList getL() {
+		return l;
+	}
+
 	public SnocList(char c, SnocList l) {
 		this.c = c;
 		this.l = l;
@@ -38,15 +47,4 @@ public class SnocList {
 
 		return reversedObj;
 	}
-
-	public static void main(String[] args) {
-		SnocList list = null;
-		for (int i = 0; i < 10; i++) {
-			list = new SnocList('a', new SnocList('p', new SnocList('p', null)));
-		}
-		SnocList reverse = list.recursiveReverse(list);
-
-		System.out.println(reverse);
-	}
-
 }

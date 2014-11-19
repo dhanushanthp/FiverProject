@@ -2,38 +2,48 @@ package se.cs.a4;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class SnocListTest {
 
-	@Test
-	public void testTop() {
-		fail("Not yet implemented");
+	SnocList charList;
+
+	@Before
+	public void setUp() {
+		charList =  new SnocList('a', new SnocList('b', new SnocList('c', null)));
 	}
 
 	@Test
-	public void testPop() {
-		fail("Not yet implemented");
+	public void testCurrentNode(){
+		assertEquals('a',charList.getC());
 	}
-
+	
 	@Test
-	public void testPush() {
-		fail("Not yet implemented");
+	public void testreverse(){
+		assertEquals("c,b,a,",charList.recursiveReverse(charList).toString());
 	}
-
+	
 	@Test
-	public void testIsEmpty() {
-		fail("Not yet implemented");
+	public void testNonreverse(){
+		assertNotEquals("b,c,a,",charList.recursiveReverse(charList).toString());
 	}
-
+	
 	@Test
-	public void testToString() {
-		fail("Not yet implemented");
+	public void testNextNodeReverse(){
+		assertEquals('b',(charList.recursiveReverse(charList)).getL().getC());
 	}
-
+	
 	@Test
-	public void testRecursiveReverse() {
-		fail("Not yet implemented");
+	public void testNextNode(){
+		assertEquals('b',charList.getL().getC());
 	}
+	
+	@Test
+	public void testToString(){
+		assertEquals("a,b,c,",charList.toString());
+	}
+	
+
 
 }

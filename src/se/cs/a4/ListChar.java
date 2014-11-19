@@ -54,16 +54,4 @@ public class ListChar implements MyStack {
 
 		return data;
 	}
-
-	public static void main(String[] args) throws EmptyContainerException {
-		ListChar charList = new ListChar();
-
-		for (int i = 0; i < 10; i++) {
-			charList.push((char) ('0' + i));
-		}
-
-		while (!charList.isEmpty())
-			charList.pop();
-	}
-
 }
